@@ -1,0 +1,69 @@
+{
+	"name": "SourceDataset_9wv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_asql_xpto",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "String",
+				"defaultValue": "dbo"
+			},
+			"tabela": {
+				"type": "String",
+				"defaultValue": "TB_Jogador"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "IdJogador",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "NomJogador",
+				"type": "varchar"
+			},
+			{
+				"name": "NumCamisa",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "NomPosicao",
+				"type": "varchar"
+			},
+			{
+				"name": "IdSelecao",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "DthInclusao",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "DthAlteracao",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tabela",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

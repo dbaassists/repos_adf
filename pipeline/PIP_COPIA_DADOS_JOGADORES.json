@@ -1,0 +1,91 @@
+{
+	"name": "PIP_COPIA_DADOS_JOGADORES",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_9wv",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 3,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "copa.TB_Jogador"
+					},
+					{
+						"name": "Destination",
+						"value": "landing//jogadores.csv"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_9wv",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": {
+								"value": "@pipeline().parameters.p_schema",
+								"type": "Expression"
+							},
+							"tabela": {
+								"value": "@pipeline().parameters.p_tabela",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_9wv",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"p_schema": {
+				"type": "string",
+				"defaultValue": "copa"
+			},
+			"p_tabela": {
+				"type": "string",
+				"defaultValue": "TB_Selecao"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-06-06T00:18:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

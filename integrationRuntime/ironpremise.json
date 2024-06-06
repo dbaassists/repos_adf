@@ -1,0 +1,6 @@
+{
+	"name": "ironpremise",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
