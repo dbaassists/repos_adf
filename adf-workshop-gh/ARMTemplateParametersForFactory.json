@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-workshop-gh"
+		},
+		"ls_adls_xpto_accountKey": {
+			"value": ""
+		},
+		"ls_asql_xpto_password": {
+			"value": ""
+		},
+		"ls_adls_xpto_properties_typeProperties_url": {
+			"value": "https://adlsworkshopbiazure.dfs.core.windows.net/"
+		},
+		"ls_asql_xpto_properties_typeProperties_server": {
+			"value": "asql-database-workshop.database.windows.net"
+		},
+		"ls_asql_xpto_properties_typeProperties_database": {
+			"value": "asql-database-workshop"
+		},
+		"ls_asql_xpto_properties_typeProperties_userName": {
+			"value": "uasqlworkshop"
+		}
+	}
+}
